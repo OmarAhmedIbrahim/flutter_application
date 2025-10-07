@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "43776677831",
+    "project_id": "mo-sapp",
+    "storage_bucket": "mo-sapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43776677831:android:ab4275120448c63895abe2",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdQF55pYwYzI6EmJVjbNj5Z3TVXhGGsoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
