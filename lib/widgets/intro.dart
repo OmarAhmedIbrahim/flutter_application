@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/constants/TextStyles.dart';
 
 class Intro extends StatelessWidget {
   Intro({
@@ -22,11 +23,7 @@ class Intro extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
+            style: TextStyles.veryLargeText(),
             maxLines: 2,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
@@ -35,7 +32,7 @@ class Intro extends StatelessWidget {
             child: Text(
               description,
               //"Professional customer service that never sleeps. We handle your calls, texts, \n              and inquiries so you can focus on growing your business",
-              style: TextStyle(fontSize: 25, color: Colors.white),
+              style: TextStyles.largeText(),
               maxLines: 2,
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,

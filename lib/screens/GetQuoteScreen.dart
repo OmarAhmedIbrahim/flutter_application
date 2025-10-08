@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application/components/customtextfield.dart';
-import 'package:flutter_application/components/intro.dart';
+import 'package:flutter_application/constants/Spacers.dart';
+import 'package:flutter_application/constants/TextStyles.dart';
+import 'package:flutter_application/widgets/customtextfield.dart';
+import 'package:flutter_application/widgets/intro.dart';
 import 'package:flutter_application/software/validator.dart';
 
 class Getquotescreen extends StatelessWidget {
@@ -10,7 +11,6 @@ class Getquotescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Added Scaffold wrapper
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -19,7 +19,7 @@ class Getquotescreen extends StatelessWidget {
               description:
                   "Ready to bring your vision to life? Tell us about your project and get a detailed quote tailored to your needs.",
             ),
-            SizedBox(height: 20),
+            Spacers.HMediumSpace(),
             Padding(
               // Added padding for better layout
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -28,21 +28,20 @@ class Getquotescreen extends StatelessWidget {
                 children: [
                   Text(
                     "Get Your Custom Quote",
-                    style: TextStyle(
-                      fontSize: 32, // Reduced for better responsiveness
-                      fontWeight: FontWeight.bold,
+                    style: TextStyles.largeText(
                       color: Color(0xff052861),
+                      fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 15),
+Spacers.HSmallSpace(),
                   Text(
                     "Fill out the form below and we'll get back to you with a detailed proposal.",
-                    style: TextStyle(color: Color(0xffaaa5a9), fontSize: 17),
+                    style: TextStyles.mediumText(color: Color(0xffaaa5a9)),
                     maxLines: 2,
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 20),
+            Spacers.HMediumSpace(),
                   Card(
                     elevation: 10,
                     child: Container(
@@ -59,21 +58,20 @@ class Getquotescreen extends StatelessWidget {
                               padding: const EdgeInsets.all(5.0),
                               child: Text(
                                 "Project Details",
-                                style: TextStyle(
-                                  fontSize: 20,
+                                style: TextStyles.largeText(
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.black
                                 ),
                               ),
                             ),
                             Text(
                               "The more details you provide, the more accurate your quote will be.",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: TextStyles.mediumText(
                                 color: Color(0xffaaa5a9),
-                                fontSize: 15,
                               ),
                             ),
-                            SizedBox(height: 20),
+            Spacers.HMediumSpace(),
                             // First Name & Last Name Row
                             Row(
                               children: [
@@ -83,7 +81,7 @@ class Getquotescreen extends StatelessWidget {
                                     hintText: "Omar",
                                   ),
                                 ),
-                                SizedBox(width: 16),
+            Spacers.WMediumSpace(),
                                 Expanded(
                                   child: Customtextfield(
                                     fieldName: "Last Name",
@@ -92,7 +90,7 @@ class Getquotescreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 20),
+            Spacers.HMediumSpace(),
                             // Email & Phone Row
                             Row(
                               children: [
@@ -103,7 +101,7 @@ class Getquotescreen extends StatelessWidget {
                                     validator: Validator.emailValidator,
                                   ),
                                 ),
-                                SizedBox(width: 16),
+            Spacers.WMediumSpace(),
                                 Expanded(
                                   child: Customtextfield(
                                     fieldName: "Phone Number",
@@ -112,7 +110,7 @@ class Getquotescreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 16),
+            Spacers.HMediumSpace(),
                             // Project Description
                             Customtextfield(
                               fieldName: "Project Description",
@@ -120,7 +118,7 @@ class Getquotescreen extends StatelessWidget {
                                   "Please describe your project in detail",
                               minLines: 3,
                             ),
-                            SizedBox(height: 15),
+            Spacers.HSmallSpace(),
                             // Submit Button
                             SizedBox(
                               width: double.infinity,
@@ -130,7 +128,9 @@ class Getquotescreen extends StatelessWidget {
                                 },
                                 child: Text(
                                   "Submit Quote Request",
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyles.mediumText(
+                                    color: Colors.white,
+                                  ),
                                 ),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.deepOrange,
@@ -145,13 +145,13 @@ class Getquotescreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 15),
+            Spacers.HMediumSpace(),
                           ],
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+            Spacers.HMediumSpace(),
                 ],
               ),
             ),

@@ -1,5 +1,5 @@
-import 'package:flutter_application/components/collection.dart';
-import 'package:flutter_application/components/intro.dart';
+import 'package:flutter_application/widgets/collection.dart';
+import 'package:flutter_application/widgets/intro.dart';
 import 'package:flutter/material.dart';
 
 class Contactusscreen extends StatelessWidget {

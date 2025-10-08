@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application/constants/TextStyles.dart';
 import 'package:flutter_application/firebase_options.dart';
 import 'package:flutter_application/widgets/AppbarButton.dart';
 import 'screens/ContactUsScreen.dart';
@@ -123,21 +124,21 @@ class _ResponsiveHomeState extends State<ResponsiveHome> {
                   onPressed: _goHome,
                   child: Text(
                     "Home",
-                    style: TextStyle(fontSize: 15, color: Colors.black),
+                    style: TextStyles.mediumText(),
                   ),
                 ),
                 TextButton(
                   onPressed: _goAbout,
                   child: Text(
                     "About us",
-                    style: TextStyle(fontSize: 15, color: Colors.black),
+                    style: TextStyles.mediumText(),
                   ),
                 ),
                 TextButton(
                   onPressed: _goContact,
                   child: Text(
                     "Contact us",
-                    style: TextStyle(fontSize: 15, color: Colors.black),
+                    style: TextStyles.mediumText(),
                   ),
                 ),
               ],
