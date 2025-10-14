@@ -14,7 +14,9 @@ class GetQuoteScreen extends StatelessWidget {
   final TextEditingController firstController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController lastController = TextEditingController();
-
+void showSnakBar(BuildContext context, String message) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+}
   @override
   Widget build(BuildContext context) {
     CollectionReference quotes = FirebaseFirestore.instance.collection(
@@ -159,6 +161,7 @@ class GetQuoteScreen extends StatelessWidget {
                                     lastController.clear();
                                     phoneController.clear();
                                     descriptionController.clear();
+                                    showSnakBar(context, 'Quote sent successfuly');
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(
