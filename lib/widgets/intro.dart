@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/constants/TextStyles.dart';
+import 'package:flutter_application/constants/text_styles.dart';
 
 class Intro extends StatelessWidget {
-  Intro({
+  const Intro({
     super.key,
     this.height,
     required this.title,
     required this.description,
   });
-  double? height;
-  String title;
-  String description;
+  final double? height;
+  final String title;
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,6 @@ class Intro extends StatelessWidget {
           Center(
             child: Text(
               description,
-              //"Professional customer service that never sleeps. We handle your calls, texts, \n              and inquiries so you can focus on growing your business",
               style: TextStyles.largeText(),
               maxLines: 2,
               textAlign: TextAlign.center,

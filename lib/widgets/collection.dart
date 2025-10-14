@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/constants/text_styles.dart';
 
 class Collection extends StatelessWidget {
-  const Collection({super.key});
+  final IconData icon;
+  final String title;
+  final String description;
+
+  const Collection({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,25 +24,25 @@ class Collection extends StatelessWidget {
             height: 45,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              color: Color(0xffdce2eb),
+              color: const Color(0xffdce2eb),
             ),
-      
-            child: Icon(size: 30, Icons.account_box, color: Color(0xff052861)),
-          ),
-          SizedBox(height: 15),
-          Text(
-            "Free Consultation",
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 17,
+            child: Icon(
+              size: 30,
+              icon,
+              color: const Color(0xff052861),
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 15),
           Text(
-            "Get expert advice and project estimation\nat no cost",
-            style: TextStyle(color: Color(0xff052861), fontSize: 15),
+            title,
+            style:  TextStyles.mediumText(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            description,
+            style:  TextStyles.mediumText(fontWeight: FontWeight.bold , color:const Color(0xff052861), ),
             maxLines: 3,
+            
             textAlign: TextAlign.center,
           ),
         ],

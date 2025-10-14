@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Appbarbutton extends StatefulWidget {
+class Appbarbutton extends StatelessWidget {
   const Appbarbutton({super.key , required this.function});
 
 final VoidCallback function ;
 
   @override
-  State<Appbarbutton> createState() => _AppbarbuttonState();
-}
-
-class _AppbarbuttonState extends State<Appbarbutton> {
-  
-  @override
   Widget build(BuildContext context) {
     return  ElevatedButton(
-              onPressed: widget.function,
+              onPressed: function,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.deepOrange,
                 elevation: 10,
@@ -25,7 +19,7 @@ class _AppbarbuttonState extends State<Appbarbutton> {
                 ),
               ),
               child: Text(
-                "Request a Qoute",
+                "Request a Quote",
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(color: Colors.white),
               ),

@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/constants/Spacers.dart';
-import 'package:flutter_application/constants/TextStyles.dart';
-import 'package:flutter_application/widgets/customtextfield.dart';
+import 'package:flutter_application/constants/text_styles.dart';
+import 'package:flutter_application/widgets/custom_textfield.dart';
 import 'package:flutter_application/widgets/intro.dart';
 import 'package:flutter_application/software/validator.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Getquotescreen extends StatelessWidget {
-  Getquotescreen({super.key});
+class GetQuoteScreen extends StatelessWidget {
+   GetQuoteScreen({super.key});
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController firstController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
+  final TextEditingController lastController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    CollectionReference quotes = FirebaseFirestore.instance.collection(
+      'Quotes',
+    );
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -19,7 +29,7 @@ class Getquotescreen extends StatelessWidget {
               description:
                   "Ready to bring your vision to life? Tell us about your project and get a detailed quote tailored to your needs.",
             ),
-            Spacers.HMediumSpace(),
+            Spacers.heightMediumSpace(),
             Padding(
               // Added padding for better layout
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -34,14 +44,14 @@ class Getquotescreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-Spacers.HSmallSpace(),
+                  Spacers.heightSmallSpace(),
                   Text(
                     "Fill out the form below and we'll get back to you with a detailed proposal.",
                     style: TextStyles.mediumText(color: Color(0xffaaa5a9)),
                     maxLines: 2,
                     textAlign: TextAlign.center,
                   ),
-            Spacers.HMediumSpace(),
+                  Spacers.heightMediumSpace(),
                   Card(
                     elevation: 10,
                     child: Container(
@@ -60,7 +70,7 @@ Spacers.HSmallSpace(),
                                 "Project Details",
                                 style: TextStyles.largeText(
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black
+                                  color: Colors.black,
                                 ),
                               ),
                             ),
@@ -71,7 +81,7 @@ Spacers.HSmallSpace(),
                                 color: Color(0xffaaa5a9),
                               ),
                             ),
-            Spacers.HMediumSpace(),
+                            Spacers.heightMediumSpace(),
                             // First Name & Last Name Row
                             Row(
                               children: [
@@ -79,18 +89,22 @@ Spacers.HSmallSpace(),
                                   child: Customtextfield(
                                     fieldName: "First Name",
                                     hintText: "Omar",
+                                    validator: Validator.filledValidator,
+                                    controller: firstController,
                                   ),
                                 ),
-            Spacers.WMediumSpace(),
+                                Spacers.widthMediumSpace(),
                                 Expanded(
                                   child: Customtextfield(
                                     fieldName: "Last Name",
                                     hintText: "Gamal El-Din",
+                                    validator: Validator.filledValidator,
+                                    controller: lastController,
                                   ),
                                 ),
                               ],
                             ),
-            Spacers.HMediumSpace(),
+                            Spacers.heightMediumSpace(),
                             // Email & Phone Row
                             Row(
                               children: [
@@ -99,39 +113,54 @@ Spacers.HSmallSpace(),
                                     fieldName: "Email",
                                     hintText: "omar.agamal.eldin@gmail.com",
                                     validator: Validator.emailValidator,
+                                    controller: emailController,
                                   ),
                                 ),
-            Spacers.WMediumSpace(),
+                                Spacers.widthMediumSpace(),
                                 Expanded(
                                   child: Customtextfield(
                                     fieldName: "Phone Number",
                                     hintText: "+1 (555) 123-456",
+                                    validator: Validator.filledValidator,
+                                    controller: phoneController,
                                   ),
                                 ),
                               ],
                             ),
-            Spacers.HMediumSpace(),
+                            Spacers.heightMediumSpace(),
                             // Project Description
                             Customtextfield(
                               fieldName: "Project Description",
                               hintText:
                                   "Please describe your project in detail",
                               minLines: 3,
+                              validator: Validator.filledValidator,
+                              controller: descriptionController,
                             ),
-            Spacers.HSmallSpace(),
+                            Spacers.heightSmallSpace(),
                             // Submit Button
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
                                 onPressed: () {
-                                  _formKey.currentState!.validate();
+                                  if (_formKey.currentState!.validate()) {
+                                    // Add timestamp when submitting
+                                    quotes.add({
+                                      'email': emailController.text.trim(),
+                                      'name':
+                                          "${firstController.text.trim()} ${lastController.text.trim()}",
+                                      'phone': phoneController.text.trim(),
+                                      'description': descriptionController.text
+                                          .trim(),
+                                      'timestamp': FieldValue.serverTimestamp(), // Add this line
+                                    });
+                                    emailController.clear();
+                                    firstController.clear();
+                                    lastController.clear();
+                                    phoneController.clear();
+                                    descriptionController.clear();
+                                  }
                                 },
-                                child: Text(
-                                  "Submit Quote Request",
-                                  style: TextStyles.mediumText(
-                                    color: Colors.white,
-                                  ),
-                                ),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.deepOrange,
                                   elevation: 10,
@@ -143,15 +172,21 @@ Spacers.HSmallSpace(),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
+                                child: Text(
+                                  "Submit Quote Request",
+                                  style: TextStyles.mediumText(
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ),
                             ),
-            Spacers.HMediumSpace(),
+                            Spacers.heightMediumSpace(),
                           ],
                         ),
                       ),
                     ),
                   ),
-            Spacers.HMediumSpace(),
+                  Spacers.heightMediumSpace(),
                 ],
               ),
             ),
