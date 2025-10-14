@@ -31,7 +31,7 @@ class Contactusscreen extends StatelessWidget {
               SizedBox(height: 15),
               Text(
                 "We're always excited to hear about new projects and opportunities. \nReach out to us through any of the channels below.",
-                  style: TextStyles.mediumText(),
+                  style: TextStyles.mediumText(color:Colors.grey[600],),
                 maxLines: 2,
                 textAlign: TextAlign.center,
               ),

@@ -31,14 +31,14 @@ class Aboutusscreen extends StatelessWidget {
                 Spacers.heightSmallSpace(),
               Text(
                 "Founded with a vision to redefine outsourced customer service, ConnectWise Solutions bridges the gap between businesses and their customers.\nWe understand that every call, text, or inquiry is an opportunity to build loyalty.",
-                  style: TextStyles.mediumText(),
+                  style: TextStyles.mediumText(color:Colors.grey[600],),
                 maxLines: 2,
                 textAlign: TextAlign.center,
               ),
                 Spacers.heightMediumSpace(),
               Text(
                 "That's why we've built a platform that delivers fast, reliable, and personalized support, tailored to your unique needs. Our technology-first\napproach ensures seamless integration with your existing systems while maintaining the human touch that customers value",
-                  style: TextStyles.mediumText(),
+                  style: TextStyles.mediumText(color:Colors.grey[600],),
                 maxLines: 2,
                 textAlign: TextAlign.center,
               ),
@@ -54,7 +54,7 @@ class Aboutusscreen extends StatelessWidget {
               Text(
                 "We're committed to delivering exceptional results for every project.",
                 textAlign: TextAlign.center,
-                  style: TextStyles.mediumText(),
+                  style: TextStyles.mediumText(color:Colors.grey[600],),
               ),
                 Spacers.heightLargeSpace(),
               Wrap(

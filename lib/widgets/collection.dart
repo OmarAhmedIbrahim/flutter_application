@@ -40,7 +40,7 @@ class Collection extends StatelessWidget {
           const SizedBox(height: 5),
           Text(
             description,
-            style:  TextStyles.mediumText(fontWeight: FontWeight.bold , color:const Color(0xff052861), ),
+            style:  TextStyles.mediumText(fontWeight: FontWeight.bold , color:Colors.grey[600], ),
             maxLines: 3,
             
             textAlign: TextAlign.center,

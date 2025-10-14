@@ -49,7 +49,7 @@ void showSnakBar(BuildContext context, String message) {
                   Spacers.heightSmallSpace(),
                   Text(
                     "Fill out the form below and we'll get back to you with a detailed proposal.",
-                    style: TextStyles.mediumText(color: Color(0xffaaa5a9)),
+                    style: TextStyles.mediumText(color:Colors.grey[600],),
                     maxLines: 2,
                     textAlign: TextAlign.center,
                   ),
@@ -80,7 +80,7 @@ void showSnakBar(BuildContext context, String message) {
                               "The more details you provide, the more accurate your quote will be.",
                               textAlign: TextAlign.center,
                               style: TextStyles.mediumText(
-                                color: Color(0xffaaa5a9),
+                                color: Colors.grey[600],
                               ),
                             ),
                             Spacers.heightMediumSpace(),
